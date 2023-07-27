@@ -165,7 +165,7 @@ Sure, I can explain the functionality of each port based on the typical usage in
 
 2. **Port 5223**: This port is typically used for legacy SSL connections from clients. Modern clients typically use port 5222 with STARTTLS, but some older clients might still use this port.
 
-3. **Port 5269**: This port is used for server-to-server (s2s) connections. The `ejabberd_s2s_in` module handles incoming server-to-server connections. 
+3. **Port 5269**: This port is used for server-to-server (s2s) connections. The `ejabberd_s2s_in` module handles incoming server-to-server connections.
 
 4. **Port 5443**: This port is used for various HTTP-based services, including BOSH (Bidirectional-streams Over Synchronous HTTP), which is a transport protocol that emulates a bidirectional stream between two entities (such as a client and a server) by using multiple synchronous HTTP response/request pairs without requiring the use of polling or asynchronous chunking.
 
@@ -175,10 +175,4 @@ Sure, I can explain the functionality of each port based on the typical usage in
 
 7. **Port 1883**: This port is used by the MQTT (Message Queuing Telemetry Transport) protocol, which is a lightweight publish-subscribe messaging protocol often used for IoT devices. `mod_mqtt` is the ejabberd module that handles MQTT connections.
 
-
 Please note that these are default ports, and they can be changed in the ejabberd configuration file (usually named `ejabberd.yml`). The actual ports open on your ejabberd server depend on your specific configuration.
-
-OLDNODE=ejabberd@localhost
-NEWNODE=xmpp1@chathub-server-001.entradasolutions.com
-OLDFILE=/tmp/old.backup
-NEWFILE=/tmp/new.backup
