@@ -165,9 +165,10 @@ sudo rm -rf /var/lib/ejabberd/*
 ```
 
 Change the node name in the `ejabberdctl.cfg` configuration file:
+The nodename for ejabberd is usually in the format `ejabberd@hostname`. The `hostname` should be the fully qualified domain name (FQDN) of the server machine.
 
 ```bash
-ERLANG_NODE=ejabberd@your_new_nodename
+ERLANG_NODE=ejabberd@hostname
 ```
 
 Restart ejabberd:
@@ -179,12 +180,19 @@ sudo ejabberdctl status
 
 ## 9. Add cluster
 
+**Ensure Same Erlang Cookies:** For two nodes to communicate, they need to have the same Erlang cookie. The cookie is found in `/var/lib/ejabberd/.erlang.cookie`. Make sure this file contains the same string on both machine
+
+Restart ejabberd:
+
+```bash
+sudo systemctl restart ejabberd
+sudo ejabberdctl status
+```
+
 Join the new node to the existing cluster:
 
 ```bash
 ejabberdctl --node ejabberd@Node1 join_cluster ejabberd@Node2
 ```
 
-Remember to replace Node1 and Node2 with your actual node names.
-
-
+Remember to replace Node1 and Node2 with your actual node names. The Erlang node names should correspond to the long hostname
